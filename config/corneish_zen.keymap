@@ -85,6 +85,11 @@
             bindings = <&kp LEFT_GUI>;
             key-positions = <15 16>;
         };
+
+        screenshot-macos {
+            bindings = <&kp LG(LS(NUMBER_4))>;
+            key-positions = <24 25>;
+        };
     };
 
     keymap {

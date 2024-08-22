@@ -66,7 +66,7 @@
             key-positions = <31 32>;
         };
 
-        command-left {
+        command-right {
             bindings = <&kp RIGHT_GUI>;
             key-positions = <19 20>;
         };

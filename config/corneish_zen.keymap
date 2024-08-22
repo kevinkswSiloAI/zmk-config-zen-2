@@ -61,19 +61,29 @@
             key-positions = <1 2>;
         };
 
-        control {
-            bindings = <&kp LCTRL>;
+        control-right {
+            bindings = <&kp RCTRL>;
             key-positions = <31 32>;
         };
 
-        command {
-            bindings = <&kp LEFT_GUI>;
+        command-left {
+            bindings = <&kp RIGHT_GUI>;
             key-positions = <19 20>;
         };
 
         Lock {
             bindings = <&kp LG(LA(Q))>;
             key-positions = <9 10>;
+        };
+
+        control-left {
+            bindings = <&kp LCTRL>;
+            key-positions = <27 28>;
+        };
+
+        command-left {
+            bindings = <&kp LEFT_GUI>;
+            key-positions = <15 16>;
         };
     };
 

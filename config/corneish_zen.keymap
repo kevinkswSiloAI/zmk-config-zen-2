@@ -88,7 +88,7 @@
 
         screenshot-macos {
             bindings = <&kp LG(LS(NUMBER_4))>;
-            key-positions = <24 25>;
+            key-positions = <25 26>;
         };
     };
 

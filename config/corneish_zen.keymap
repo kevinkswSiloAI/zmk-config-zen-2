@@ -90,6 +90,16 @@
             bindings = <&kp LG(LS(NUMBER_4))>;
             key-positions = <25 26>;
         };
+
+        Space {
+            bindings = <&kp SPACE>;
+            key-positions = <14 15 16>;
+        };
+
+        System-Reset {
+            bindings = <&sys_reset>;
+            key-positions = <1 5 38>;
+        };
     };
 
     keymap {

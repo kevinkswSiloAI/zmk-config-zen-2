@@ -95,7 +95,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        DefaultLayer {
             display-name = "QWERTY";
 
             // --------------------------------------------------------------------------------
@@ -108,11 +108,11 @@
 &none  &kp Q  &kp W  &kp E           &kp R  &kp T          &kp Y        &kp U  &kp I      &kp O    &kp P     &none
 &none  &kp A  &kp S  &kp D           &kp F  &kp G          &kp H        &kp J  &kp K      &kp L    &kp SEMI  &none
 &none  &kp Z  &kp X  &kp C           &kp V  &kp B          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
-                     &kp LEFT_SHIFT  &mo 1  &lt 4 ENTER    &lt 3 SPACE  &mo 2  &kp RALT
+                     &kp LEFT_SHIFT  &mo 1  &lt 2 ENTER    &lt 3 SPACE  &mo 4  &kp RALT
             >;
         };
 
-        lower_layer {
+        Number+Symbols {
             display-name = "NUM+SYM";
 
             // -----------------------------------------------------------------------------------------
@@ -129,8 +129,29 @@
             >;
         };
 
-        raise_layer {
-            display-name = "SYMBOL";
+        NavAndFn {
+            bindings = <
+&bt BT_CLR_ALL  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4     &kp C_VOLUME_UP    &kp HOME        &kp UP            &kp END             &kp PAGE_UP    &trans
+&sys_reset      &out OUT_USB     &out OUT_BLE    &trans           &kp LG(N0)       &kp LG(PLUS)     &kp C_VOLUME_DOWN  &kp LEFT_ARROW  &kp DOWN          &kp RIGHT           &kp PAGE_DOWN  &trans
+&trans          &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &kp LG(MINUS)    &kp K_MUTE         &kp C_REWIND    &kp C_PLAY_PAUSE  &kp C_FAST_FORWARD  &trans         &trans
+                                                 &trans           &trans           &trans           &trans             &trans          &trans
+            >;
+
+            label = "NAV+Fn";
+        };
+
+        Functions {
+            display-name = "Fn";
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3  &kp F4      &kp F5         &kp F6       &kp F7  &kp F8  &kp F9  &kp F10  &trans
+&trans  &trans  &trans  &trans  &sys_reset  &bootloader    &bootloader  &trans  &trans  &trans  &kp F11  &trans
+&trans  &trans  &trans  &trans  &trans      &trans         &trans       &trans  &trans  &trans  &kp F12  &trans
+                        &trans  &trans      &trans         &trans       &trans  &trans
+            >;
+        };
+
+        Coding {
+            display-name = "CODE";
 
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
@@ -139,32 +160,11 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR   &kp PRCNT    &kp CARET         &kp AMPS           &kp ASTRK  &kp LPAR           &kp RPAR       &none
-&trans  &none     &none   &none     &kp TILDE  &kp PIPE     &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp SQT    &kp DOUBLE_QUOTES  &kp GRAVE      &none
-&trans  &trans    &trans  &none     &none      &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp MINUS  &kp EQUAL          &kp BACKSLASH  &none
-                          &trans    &trans     &trans       &trans            &trans             &trans
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR   &kp PRCNT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL  &kp PLUS           &kp RPAR       &none
+&trans  &none     &none   &none     &kp TILDE  &kp PIPE     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SQT    &kp DOUBLE_QUOTES  &kp GRAVE      &none
+&trans  &trans    &trans  &none     &none      &none        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp MINUS  &kp EQUAL          &kp BACKSLASH  &none
+                          &trans    &trans     &trans       &trans                &trans                 &trans
             >;
-        };
-
-        Functions {
-            display-name = "Fn";
-            bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4      &kp F5         &kp F6       &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
-&trans  &trans  &trans  &trans  &sys_reset  &bootloader    &bootloader  &trans  &trans  &trans  &kp PRINTSCREEN  &kp F12
-&trans  &trans  &trans  &trans  &trans      &trans         &trans       &trans  &trans  &trans  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                        &trans  &trans      &trans         &trans       &trans  &trans
-            >;
-        };
-
-        NavAndFn {
-            bindings = <
-&bt BT_CLR_ALL  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4    &kp C_VOLUME_UP    &kp HOME        &kp UP            &kp END             &kp PAGE_UP    &trans
-&sys_reset      &out OUT_USB     &out OUT_BLE    &trans           &trans           &trans          &kp C_VOLUME_DOWN  &kp LEFT_ARROW  &kp DOWN          &kp RIGHT           &kp PAGE_DOWN  &trans
-&trans          &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &trans          &kp K_MUTE         &kp C_REWIND    &kp C_PLAY_PAUSE  &kp C_FAST_FORWARD  &trans         &trans
-                                                 &trans           &trans           &trans          &trans             &trans          &trans
-            >;
-
-            label = "NAV&Fn";
         };
     };
 };

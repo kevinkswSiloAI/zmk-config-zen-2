@@ -147,7 +147,7 @@
                                                  &trans           &trans           &trans           &trans             &trans          &trans
             >;
 
-            label = "NAV+Fn";
+            label = "NAV+SYS";
         };
 
         Functions {
